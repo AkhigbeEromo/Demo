@@ -24,15 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 
         with:
           fetch-depth: 0
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
       - name: Using Node.js 20.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with: 
-            node-version: 20.x
+            node-version: 20
       - name: Clean Install
         run: npm ci
       - name: Build
